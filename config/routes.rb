@@ -3,5 +3,8 @@ Cultivate::Application.routes.draw do
 
   resource :company
 
+  authenticated :user do
+    root to: "companies#show"
+  end
   root to: "main#index"
 end

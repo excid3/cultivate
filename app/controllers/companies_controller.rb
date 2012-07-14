@@ -15,14 +15,10 @@ class CompaniesController < ApplicationController
   def update
     @company = current_company
 
-    respond_to do |format|
-      if @company.update_attributes(params[:company])
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
+    if @company.update_attributes(params[:company])
+      redirect_to root_url, notice: 'Company was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 end

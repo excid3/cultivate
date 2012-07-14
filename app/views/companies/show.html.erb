@@ -4,7 +4,3 @@
 <% current_company.users.each do |user| %>
   <li><%= user.email %></li>
 <% end %>
-
-<% if current_company_owner? %>
-  <%= link_to "Edit #{current_company.name}", edit_company_path(@company) %>
-<% end %>
