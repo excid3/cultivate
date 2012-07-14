@@ -6,9 +6,6 @@
   <%= f.fields_for :owned_company do |c| %>
     <div><%= f.label :name, "Company Name" %><br />
     <%= c.text_field :name %></div>
-
-    <div><%= f.label :subdomain %><br />
-    <%= c.text_field :subdomain %></div>
   <% end %>
 
   <div><%= f.label :email %><br />

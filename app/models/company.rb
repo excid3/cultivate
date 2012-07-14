@@ -1,5 +1,8 @@
 class Company < ActiveRecord::Base
-  attr_accessible :name, :owner_id, :subdomain
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
+  attr_accessible :name, :slug
 
   has_one :owner, class_name: "User"
   has_many :users

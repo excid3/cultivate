@@ -15,11 +15,13 @@ ActiveRecord::Schema.define(:version => 20120714183303) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
-    t.string   "subdomain"
+    t.string   "slug"
     t.integer  "owner_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "companies", ["slug"], :name => "index_companies_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
